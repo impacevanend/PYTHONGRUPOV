@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from nogcodevapp.views import facturaView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('factura/', facturaView.FacturaCreateView.as_view()),
 ]
