@@ -11,6 +11,7 @@ class Venta(models.Model):
     cantidad = models.IntegerField(default=0)
     
     
+    
     def __str__(self):
         
         return f'Venta {self.id}: {self.factura} {self.producto} {self.cantidad}'
