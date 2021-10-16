@@ -16,12 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
-from nogcodevapp import views
+from nogcodevapp.views.categoriaCreateView import listado
+from nogcodevapp.views.facturaCreateView import listadoFactura
+from nogcodevapp.views.productoCreateView import listadoProducto
+from nogcodevapp.views.ventaCreateView import listadoVenta
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
-    path('user/', views.UserCreateView.as_view()),
-    path('user/<int:pk>/', views.UserDetailView.as_view()),
+   # path('user/', views.UserCreateView.as_view()),
+   #path('user/<int:pk>/', views.UserDetailView.as_view()),
+    path('listado', listado,name="listado"),
+    path('listadoFactura', listadoFactura,name="listadoFactura"),
+    path('listadoProducto',listadoProducto ,name="listadoProducto"),
+    path('listadoVenta', listadoVenta,name="listadoVenta"),
 ]
